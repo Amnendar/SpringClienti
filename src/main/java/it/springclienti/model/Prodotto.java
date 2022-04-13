@@ -22,8 +22,4 @@ public class Prodotto {
 	private String marca;
 	private double prezzo;
 	
-	
-	
-	
-	
 }
