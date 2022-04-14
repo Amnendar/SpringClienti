@@ -59,8 +59,9 @@ public class ClienteController {
 	
 	@DeleteMapping("/delete/{id}")
 	@Operation(summary = "", description ="")
-	public void cancella(@RequestBody Long id) throws ClienteException {
+	public ResponseEntity<String> cancella(@PathVariable Long id) throws ClienteException {
 		clienteService.cancella(id);
+		return new ResponseEntity<>("Cliente cancellato correttamente!", HttpStatus.ACCEPTED);
 	}
 	
 	@PutMapping("/aggiorna/{id}")

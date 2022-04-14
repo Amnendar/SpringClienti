@@ -1,6 +1,7 @@
 package it.springclienti.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,7 +33,11 @@ public class Cliente {
 	private LocalDate dataInserimento;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
 	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-	private List<Ordine> ordini;
+	private List<Ordine> ordini = new ArrayList<>();
 	
+	
+	public void aggiungiOrdine(Ordine ordine) {
+		this.ordini.add(ordine);
+	}
 	
 }

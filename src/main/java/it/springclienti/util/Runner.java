@@ -1,5 +1,6 @@
 package it.springclienti.util;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +56,7 @@ public class Runner implements CommandLineRunner {
 		cliente1.setCognome("Zucchetti");
 		cliente1.setNome("Maria");
 		cliente1.setNumeroTelefonico("3287722344");
+		cliente1.setDataInserimento(LocalDate.now());
 		clienteRepo.save(cliente1);
 		
 		
@@ -66,6 +68,10 @@ public class Runner implements CommandLineRunner {
 		prodottiOrdine1.add(cuffie);
 		ordine1.setProdotti(prodottiOrdine1);
 		ordineRepo.save(ordine1);
+		
+		cliente1.aggiungiOrdine(ordine1);
+		ordineRepo.save(ordine1);
+		clienteRepo.save(cliente1);
 		
 		
 		
